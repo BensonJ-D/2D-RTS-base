@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectionManager : MonoBehaviour
+public class GridController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Vector2Int gridSize;
+
+    public float cellRadius = 0.5f;
+
+    public FlowField curFlowField;
+    
+    public GridDebug gridDebug;
+    
     void Start()
     {
+        curFlowField = new FlowField(cellRadius, gridSize);
+        curFlowField.CreateGrid();
+        curFlowField.CreateCostField();
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        gridDebug.SetFlowField(curFlowField);
     }
 }
