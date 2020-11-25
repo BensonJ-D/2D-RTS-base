@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] 
-    private CinemachineVirtualCamera camera;
+    private CinemachineVirtualCamera virtualCamera;
     private Camera _mainCam;
     
     [SerializeField] 
@@ -31,10 +31,10 @@ public class CameraFollow : MonoBehaviour
         newPos.y = Mathf.Clamp01(newPos.y);
         transform.position = _mainCam.ViewportToWorldPoint(newPos);
         
-        var fov = camera.m_Lens.OrthographicSize;
+        var fov = virtualCamera.m_Lens.OrthographicSize;
         var fovChange = Input.GetAxis("Mouse ScrollWheel") * sensitivity;
         fov += fovChange;
         fov = Mathf.Clamp(fov, minFov, maxFov);
-        camera.m_Lens.OrthographicSize = fov;
+        virtualCamera.m_Lens.OrthographicSize = fov;
     }
 }

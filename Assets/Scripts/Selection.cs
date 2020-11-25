@@ -60,13 +60,13 @@ public class Selection : MonoBehaviour
         {
             Debug.Log("Right mouse button pressed.");
             var newTarget = cam.ScreenToWorldPoint(Input.mousePosition);
-            target = new Vector2(newTarget.x, newTarget.y);
+            target = new Vector3(newTarget.x, newTarget.y, -10);
         }
 
         if (transform.position != target)
         {
             var step = 2f * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, target, step);
+            transform.position = Vector3.MoveTowards(transform.position, target, step);
         }
     }
 

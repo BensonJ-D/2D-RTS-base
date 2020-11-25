@@ -50,7 +50,7 @@ public class GridDebug : MonoBehaviour
 				{
 					foreach (var curCell in jaggedCells)
 					{
-						Handles.Label(curCell.worldPos, curCell.cost.ToString(), style);
+						Handles.Label(curCell.worldPos, curCell.Cost.ToString(), style);
 					}
 				}
 

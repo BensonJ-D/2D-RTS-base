@@ -294,7 +294,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.99, y: 0.99, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &141297869
 MeshRenderer:
@@ -389,7 +389,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.99, y: 0.99, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &177361958
 MeshRenderer:
@@ -484,7 +484,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.99, y: 0.99, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &201210637
 MeshRenderer:
@@ -921,7 +921,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
@@ -938,21 +937,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c66a9276334b84d6bbe6c7a0888bac61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridSize: {x: 0, y: 0}
-  cellRadius: 0.5
-  gridDebug: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1275,7 +1259,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.99, y: 0.99, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &734715996
 MeshRenderer:
@@ -1810,7 +1794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fc5159e2b5cba4bbd7d46002462414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 214311546}
+  virtualCamera: {fileID: 214311546}
   minFov: 1
   maxFov: 15
   sensitivity: 10
@@ -2067,7 +2051,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1853533698
@@ -2150,7 +2134,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 1000
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2190,7 +2174,7 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
+  m_AreaSize: {x: 100, y: 100}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
@@ -2206,7 +2190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110211508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 19.59, y: 11.24, z: -14.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2256,7 +2240,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.99, y: 0.99, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2123213045
 MeshRenderer:
