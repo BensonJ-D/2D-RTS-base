@@ -11,20 +11,27 @@ public class GridController : MonoBehaviour
     public FlowField curFlowField;
     
     public GridDebug gridDebug;
-
-    void Start()
+    
+    void InitializeFlowField()
     {
         curFlowField = new FlowField(cellRadius, gridSize);
         curFlowField.CreateGrid();
-        curFlowField.CreateCostField();
-
         gridDebug.SetFlowField(curFlowField);
-
-        for (int i = 0; i < 8; i++)
+    }
+    
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            var x = (i - 2 - 2 * (i % 4) * ((i + 1) % 2)) * (i % 2) - 4 * (i / 4) * (i % 2) * (i / 4);
-            var y = (i + 1 - 2 - 2 * ((i + 1) % 4) * ((i + 1 + 1) % 2)) * ((i + 1) % 2) - 4 * ((i + 1) / 4) * ((i + 1) % 2) * ((i + 1) / 4);
-            Debug.Log("X: " + x + ", Y: " + y);
+            InitializeFlowField();
+ 
+            curFlowField.CreateCostField();
+ 
+            Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);
+            Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            Cell destinationCell = curFlowField.GetCellFromWorldPos(worldMousePos);
+            curFlowField.CreateIntegrationField(destinationCell);
+            curFlowField.CreateFlowField();
         }
     }
 }

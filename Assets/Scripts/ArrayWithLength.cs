@@ -3,7 +3,7 @@ using System.Reflection;
 
 public class ArrayWithLength<T>
 {
-    public T[] array;
+    public T[] array ;
     public int length;
 
     public ArrayWithLength(T[] array, int length)

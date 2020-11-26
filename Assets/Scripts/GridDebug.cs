@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 
-public enum FlowFieldDisplayType { None, AllIcons, DestinationIcon, CostField, IntegrationField };
+public enum FlowFieldDisplayType { None, AllIcons, DestinationIcon, CostField, IntegrationField, DirectionField };
 
 public class GridDebug : MonoBehaviour
 {
@@ -20,8 +20,8 @@ public class GridDebug : MonoBehaviour
 	public void SetFlowField(FlowField newFlowField)
 	{
 		curFlowField = newFlowField;
-		cellRadius = newFlowField.cellRadius;
-		gridSize = newFlowField.gridSize;
+		cellRadius = newFlowField.CellRadius;
+		gridSize = newFlowField.GridSize;
 	}
 	
 	private void OnDrawGizmos()
@@ -46,7 +46,7 @@ public class GridDebug : MonoBehaviour
 		switch (curDisplayType)
 		{
 			case FlowFieldDisplayType.CostField:
-				foreach (var jaggedCells in curFlowField.grid)
+				foreach (var jaggedCells in curFlowField.Grid)
 				{
 					foreach (var curCell in jaggedCells)
 					{
@@ -56,14 +56,34 @@ public class GridDebug : MonoBehaviour
 
 				break;
                 
-			// case FlowFieldDisplayType.IntegrationField:
- 		//
-			// 	foreach (Cell curCell in curFlowField.grid)
-			// 	{
-			// 		Handles.Label(curCell.worldPos, curCell.bestCost.ToString(), style);
-			// 	}
-			// 	break;
-   //              
+			case FlowFieldDisplayType.IntegrationField:
+				foreach (var jaggedCells in curFlowField.Grid)
+				{
+					foreach (var curCell in jaggedCells)
+					{
+						if (curCell.IntegrationCost == ushort.MaxValue) { continue; }
+						Handles.Label(curCell.worldPos, curCell.IntegrationCost.ToString(), style);
+					}
+				}
+
+				break;
+			
+			case FlowFieldDisplayType.DirectionField:
+				foreach (var jaggedCells in curFlowField.Grid)
+				{
+					foreach (var curCell in jaggedCells)
+					{
+						if (curCell.IntegrationCost == ushort.MaxValue) { continue; }
+
+						var target = new Vector3(curCell.worldPos.x + curCell.BestDirection.x * cellRadius * 2,
+							curCell.worldPos.y + curCell.BestDirection.y * cellRadius * 2);
+						Handles.color = Color.red;
+						Handles.DrawLine(curCell.worldPos, target);
+					}
+				}
+
+				break;
+			
 			default:
 				break;
 		}
